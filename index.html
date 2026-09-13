@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сельские будни — Главный Портал</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #e8efe9;
+            color: #333;
+        }
+
+        /* ТВОЯ НОВАЯ РАБОЧАЯ ССЫЛКА НА КАРТИНКУ С ЦЕРКОВЬЮ И РЕЧКОЙ */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                        url('https://papik.pro/izobr/uploads/posts/2023-03/1679636028_papik-pro-p-krasivie-peizazhi-rusi-41.jpg') no-repeat center center;
+            background-size: cover;
+            background-position: center 35%;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid #fbc02d;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        }
+
+        header p {
+            margin: 0;
+            font-style: italic;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            animation: goldenGlow 3s infinite alternate;
+        }
+
+        @keyframes goldenGlow {
+            0% { color: #ffffff; text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+            100% { color: #fbc02d; text-shadow: 0 0 15px #fbc02d, 2px 2px 4px rgba(0,0,0,0.8); }
+        }
+
+        .auth-block {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+        }
+
+        .btn-auth {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid #fbc02d;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        .btn-auth:hover {
+            background: #fbc02d;
+            color: #2e7d32;
+        }
+
+        /* ОПРЯТНЫЙ ВИДЖЕТ ПОГОДЫ НА ВСЕ РЕГИОНЫ */
+        .weather-widget {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid #fbc02d;
+            text-align: right;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .weather-widget .temp {
+            font-size: 1.3rem;
+            font-weight: bold;
+            display: block;
+            color: #fbc02d;
+        }
+
+        .weather-widget small {
+            color: #fff;
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -30px auto 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-top: 4px solid #2e7d32;
+        }
+
+        .grid-6 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .column-title {
+            text-align: center;
+            color: #2e7d32;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 8px;
+            background: #e8f5e9;
+            border-radius: 6px;
+            border: 1px solid #c5e1a5;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .blog-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .blog-box:hover {
+            background: #fcfdfe;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: #2e7d32;
+        }
+
+        .blog-box h3 {
+            margin: 0 0 10px 0;
+            color: #2e7d32;
+            font-size: 1.2rem;
+        }
+
+        .blog-box p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .bg-tip { background: #fffde7; border-color: #ffe082; }
+        .bg-tip h3 { color: #f57f17; }
+        
+        .bg-love { background: #fdf5f5; border-color: #ffcdd2; }
+        .bg-love h3 { color: #c62828; }
+
+        .btn-sm {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 12px;
+            text-transform: uppercase;
+        }
+        .btn-sm:hover { background: #fbc02d; color: #2e7d32; }
+
+        /* РОДНОЙ ПОДВАЛ НА МЕСТЕ */
+        footer {
+            background: #1b1e1b;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 5px solid #2e7d32;
+        }
+
+        .footer-buttons { margin-bottom: 20px; }
+
+        .btn-footer {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-footer:hover {
+            background-color: #fbc02d;
+            color: #2e7d32;
+            box-shadow: 0 0 15px #fbc02d;
+        }
+
+        @media (max-width: 900px) {
+            .grid-6 { grid-template-columns: 1fr; }
+            .container { margin-top: 20px; }
+            header h1 { font-size: 2.2rem; }
+            .auth-block, .weather-widget { position: static; margin: 10px auto; text-align: center; width: fit-content; }
+        }
+           /* ======================================================== */
+        /* СТИЛИ ДЛЯ МОДАЛЬНЫХ ОКАН ВХОДА И РЕГИСТРАЦИИ (ДОРАБОТКА) */
+        /* ======================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-top: 5px solid #2e7d32;
+            position: relative;
+            transform: scale(0.85);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-window {
+            transform: scale(1);
+        }
+
+        .modal-window h2 {
+            margin: 0 0 20px 0;
+            color: #2e7d32;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.6rem;
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #c62828;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-form label {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .modal-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .modal-form input:focus {
+            border-color: #2e7d32;
+            outline: none;
+            background: #f1f8e9;
+        }
+
+        .btn-submit {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .btn-submit:hover {
+            background: #fbc02d;
+            color: #2e7d32;
+        }
+ </style>
+    <script>
+        function clickBlock(name) {
+            alert('Раздел "' + name + '" успешно открыт. Ошибок нет!');
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="auth-block">
+            <button class="btn-auth" onclick="alert('Форма входа')">Вход</button>
+            <button class="btn-auth" onclick="alert('Форма регистрации')">Регистрация</button>
+        </div>
+
+        <h1>Сельские будни</h1>
+        <p>Жизнь, порядок и вечный диалог о грядках. Добро пожаловать!</p>
+        
+        <!-- ПОГОДА ДЛЯ ВСЕХ РЕГИОНОВ РФ -->
+        <div class="weather-widget">
+            <span class="temp" id="region-temp">⛅ +14°C</span>
+            <select class="weather-select" onchange="const t=document.getElementById('region-temp'); if(this.value==='bryansk')t.innerHTML='⛅ +14°C'; else if(this.value==='moscow')t.innerHTML='☀️ +16°C'; else if(this.value==='piter')t.innerHTML='🌧️ +11°C'; else if(this.value==='kuban')t.innerHTML='☀️ +23°C'; else t.innerHTML='⛅ +15°C';">
+                <option value="bryansk" selected>Брянская обл.</option>
+                <option value="moscow">Московская обл.</option>
+                <option value="piter">Ленинградская обл.</option>
+                <option value="kuban">Краснодарский край</option>
+                <option value="all">Другие регионы РФ</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            
+            <div class="grid-6">
+                <!-- КОЛОНКА 1 -->
+                <div class="column">
+                    <div class="column-title">🛠️ Мужчины и Домохозяйки</div>
+                    <div class="blog-box" onclick="clickBlock('Сельхозтехника')">
+                        <h3>🚜 Сельхозтехника</h3>
+                        <p>Обсуждение ремонта, запчастей и максимальной производительности тракторов и комбайнов.</p>
+                    </div>
+                    <div class="blog-box" onclick="clickBlock('Соленья и Рецепты')">
+                        <h3>🥞 Соленья и Рецепты</h3>
+                        <p>Секретные домашние заготовки, хрустящие огурчики, пироги и кулинарная мудрость наших дам.</p>
+                    </div>
+                </div>
+
+                <!-- КОЛОНКА 2 -->
+                <div class="column">
+                    <div class="column-title">🧱 Строители и Мудрецы</div>
+                    <div class="blog-box" onclick="clickBlock('Строительство')">
+                        <h3>🔨 Строительство</h3>
+                        <p>Как поставить сруб, отладить крышу, починить баню и вывести деревенский дом на новый уровень.</p>
+                    </div>
+                    <div class="blog-box bg-tip" onclick="clickBlock('Мудрые советы бывалых')">
+                        <h3>💡 Мудрые советы бывалых</h3>
+                        <p>Помните, что главное — не сила мускулов, а порядок в грядках. А лучше всего с утра выпить воды!</p>
+                    </div>
+                </div>
+
+                <!-- КОЛОНКА 3 -->
+                <div class="column">
+                    <div class="column-title">🌱 Земля и Сердца</div>
+                    <div class="blog-box" onclick="clickBlock('Сад и Урожай')">
+                        <h3>🍏 Сад и Урожай</h3>
+                        <p>Бой с вредителями, выбор правильного сорта картофеля и секреты огромных, аккуратных грядок.</p>
+                    </div>
+                    <div class="blog-box bg-love" onclick="clickBlock('Знакомства на селе')">
+                        <h3>❤️ Знакомства на селе</h3>
+                        <p>Поиск себе пары среди соседей и соседских полей. С уважением к традициям и под строгим контролем.</p>
+                        <button class="btn-sm" onclick="event.stopPropagation(); alert('Форма подачи анкеты');">Подать анкету</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>    <!-- ======================================================== -->
+    <!--     HTML-РАЗМЕТКА ДЛЯ ОКАН ВХОДА И РЕГИСТРАЦИИ           -->
+    <!-- ======================================================== -->
+    <!-- Окно Входа -->
+    <div class="modal-overlay" id="modal-login">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-login')">&times;</button>
+            <h2>Вход на портал</h2>
+            <form class="modal-form" onsubmit="alert('Вход выполнен!'); closeModal('modal-login'); return false;">
+                <div>
+                    <label>Электронная почта или Логин:</label>
+                    <input type="text" placeholder="Введите логин..." required>
+                </div>
+                <div>
+                    <label>Пароль:</label>
+                    <input type="password" placeholder="Введите пароль..." required>
+                </div>
+                <button type="submit" class="btn-submit">Войти</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Окно Регистрации -->
+    <div class="modal-overlay" id="modal-register">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-register')">&times;</button>
+            <h2>Регистрация</h2>
+            <form class="modal-form" onsubmit="alert('Регистрация успешна!'); closeModal('modal-register'); return false;">
+                <div>
+                    <label>Ваше имя:</label>
+                    <input type="text" placeholder="Иван Иванович..." required>
+                </div>
+                <div>
+                    <label>Электронная почта:</label>
+                    <input type="email" placeholder="example@mail.ru" required>
+                </div>
+                <div>
+                    <label>Придумайте пароль:</label>
+                    <input type="password" placeholder="Минимум 6 символов..." required>
+                </div>
+                <button type="submit" class="btn-submit">Создать аккаунт</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+    <div class="footer-buttons">
+        <button class="btn-footer" onclick="openModal('modal-support')">Служба поддержки</button>
+        <button class="btn-footer" onclick="openModal('modal-register')">Администрация сайта</button>
+    </div>
+</footer>
+
+
+<script>
+// Функция для открытия окна
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
+// Функция для закрытия окна
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Закрытие окна при клике на темный фон вокруг него
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal-overlay')) {
+        event.target.style.display = 'none';
+    }
+}
+</script>
+
