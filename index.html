@@ -509,21 +509,70 @@
         </div>
     </div>
 
-    <footer>
-        <div class="footer-buttons">
-            <button class="btn-footer" onclick="openModal('modal-support')">Служба поддержки</button>
-            <button class="btn-footer" onclick="openModal('modal-register')">Администрация сайта</button>
+    <!-- ОКНО: Строительство -->
+    <div class="modal-overlay" id="modal-build">
+        <div class="modal-window" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeModal('modal-build')">&times;</button>
+            <h2>🔨 Строительство</h2>
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; text-align: left;">
+                <div style="background: #efebe9; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #5d4037;">
+                    <strong>Петрович (бригадир):</strong> Ставим срубы, конопатим бани, перекрываем крыши профлистом. Быстро, ровно, под усадку. Договор на коленке, качество на века! Tel: 8-930-XXX-XX-XX.
+                </div>
+                <div style="background: #efebe9; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #5d4037;">
+                    <strong>Иваныч:</strong> Мужики, у кого остался лишний мешок цемента М500? Одолжите на три дня, отдам с получки.
+                </div>
+            </div>
+            <button class="btn-submit" style="width: 100%;" onclick="alert('Форма добавления временно в разработке')">Подать заявку бригаде</button>
+        </div>
+    </div>
+
+    <!-- ОКНО: Мудрые советы -->
+    <div class="modal-overlay" id="modal-wisdom">
+        <div class="modal-window" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeModal('modal-wisdom')">&times;</button>
+            <h2>💡 Мудрые советы бывалых</h2>
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; text-align: left;">
+                <div style="background: #e0f7fa; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #00acc1;">
+                    <strong>Дед Егор:</strong> Никогда не косите траву по росе, если коса литовка — замучаетесь точить. А вот триммером бензиновым — самое милое дело, и движок не перегреется!
+                </div>
+                <div style="background: #e0f7fa; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #00acc1;">
+                    <strong>Народная мудрость:</strong> Если сосед внезапно начал хвалить твой забор — проверяй, не залезли ли его куры к тебе на грядки с помидорами.
+                </div>
+            </div>
+            <button class="btn-submit" style="width: 100%;" onclick="alert('Форма добавления временно в разработке')">Добавить совет</button>
+        </div>
+    </div>
+
+    <!-- Подвал сайта -->
+    <footer style="background: #222; color: #fff; padding: 20px; text-align: center; margin-top: 40px; border-radius: 8px 8px 0 0;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <div style="font-size: 0.9rem; color: #aaa;">&copy; 2026 Сельские Будни. Все права защищены. Порядок на земле — порядок в головах!</div>
+            <div class="footer-buttons">
+                <button class="btn-footer" onclick="openModal('modal-support')">Служба поддержки</button>
+                <button class="btn-footer" onclick="openModal('modal-support')">Администрация сайта</button>
+            </div>
         </div>
     </footer>
 
     <script>
-    // Универсальная функция для открытия окон
-    function openModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.classList.add('active');
+        // Универсальная функция для открытия окон
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.add('active');
+            }
         }
-    }
+
+        // Универсальная функция для закрытия окон
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
 
     // Универсальная функция для закрытия окон
     function closeModal(id) {
