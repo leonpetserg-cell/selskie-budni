@@ -544,6 +544,40 @@
     </div>
 
     <!-- Подвал сайта -->
+    <div class="modal-overlay" id="modal-garden">
+        <div class="modal-window" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeModal('modal-garden')">&times;</button>
+            <h2>🥕 Сад и Урожай</h2>
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; text-align: left;">
+                <div style="background: #e8f5e9; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #43a047;">
+                    <strong>Любовь Ивановна:</strong> Обменяю сортовые семена гигантских кабачков на усы клубники «Виктория». Пишите, я обычно у теплиц по вечерам.
+                </div>
+                <div style="background: #e8f5e9; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #43a047;">
+                    <strong>Фёдор:</strong> Налетел колорадский жук на позднюю картошку. Чем травить, чтобы без ядрёной химии? Соседи, выручайте советом!
+                </div>
+            </div>
+            <button class="btn-submit" style="width: 100%;" onclick="alert('Форма добавления временно в разработке')">Хвастаться урожаем</button>
+        </div>
+    </div>
+
+    <!-- ОКНО: Знакомства на селе -->
+    <div class="modal-overlay" id="modal-love">
+        <div class="modal-window" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeModal('modal-love')">&times;</button>
+            <h2>❤️ Знакомства на селе</h2>
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; text-align: left;">
+                <div style="background: #fce4ec; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #e91e63;">
+                    <strong>Григорий (38 лет):</strong> Спокойный, работящий, не пьющий (почти). Ищу порядочную хозяйку для совместного ведения хозяйства и вечерних прогулок у реки. Трактор есть.
+                </div>
+                <div style="background: #fce4ec; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #e91e63;">
+                    <strong>Валентина:</strong> Скучно одной коротать вечера. Мужчины, кто поможет починить забор у палисадника? С меня наваристый борщ и душевный разговор.
+                </div>
+            </div>
+            <button class="btn-submit" style="width: 100%;" onclick="alert('Форма добавления временно в разработке')">Подать анкету</button>
+        </div>
+    </div>
+
+    <!-- Подвал сайта -->
     <footer style="background: #222; color: #fff; padding: 20px; text-align: center; margin-top: 40px; border-radius: 8px 8px 0 0;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
             <div style="font-size: 0.9rem; color: #aaa;">&copy; 2026 Сельские Будни. Все права защищены. Порядок на земле — порядок в головах!</div>
@@ -573,15 +607,6 @@
     </script>
 </body>
 </html>
-
-    // Универсальная функция для закрытия окон
-    function closeModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.classList.remove('active');
-        }
-    }
-
     // Закрытие окна при клике на темный фон вокруг него
     window.onclick = function(event) {
         if (event.target.classList.contains('modal-overlay')) {
