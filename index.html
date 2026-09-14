@@ -485,6 +485,41 @@ window.onclick = function(event) {
     if (event.target.classList.contains('modal-overlay')) {
         event.target.style.display = 'none';
     }
-}
+}// === НАШ ПРОВЕРЕННЫЙ КОД ДЛЯ РЕГИСТРАЦИИ ОТ ИВАНЫЧА ===
+document.addEventListener("DOMContentLoaded", function() {
+    const registerForm = document.getElementById("register-form");
+    const authBlock = document.querySelector('.auth-block');
+
+    // Проверяем, заходил ли кто сосоед раньше
+    const savedUser = localStorage.getItem("currentUser");
+    if (savedUser && authBlock) {
+        authBlock.innerHTML = `<span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${savedUser}! 👋</span>`;
+    }
+
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputs = registerForm.querySelectorAll("input");
+            const name = inputs[0].value.trim();
+            const email = inputs[1].value.trim();
+            const pass = inputs[2].value.trim();
+
+            // Записываем данные в память браузера
+            localStorage.setItem("user_" + email, JSON.stringify({name: name, pass: pass}));
+            localStorage.setItem("currentUser", name);
+
+            alert("Успешная регистрация! Добро пожаловать, " + name + "!");
+            
+            // Закрываем окно (используем твою родную функцию)
+            closeModal('modal-register');
+            
+            // Меняем кнопки на приветствие
+            if (authBlock) {
+                authBlock.innerHTML = `<span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${name}! 👋</span>`;
+            }
+        });
+    }
+});
+
 </script>
 
