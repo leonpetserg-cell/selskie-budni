@@ -381,11 +381,11 @@
                 <!-- КОЛОНКА 1 -->
                 <div class="column">
                     <div class="column-title">🛠️ Мужчины и Домохозяйки</div>
-                    <div class="blog-box" onclick="clickBlock('Сельхозтехника')">
+                    <div class="blog-box" onclick="openModal('modal-tech')">
                         <h3>🚜 Сельхозтехника</h3>
                         <p>Обсуждение ремонта, запчастей и максимальной производительности тракторов и комбайнов.</p>
                     </div>
-                    <div class="blog-box" onclick="clickBlock('Соленья и Рецепты')">
+                    <div class="blog-box" onclick="openModal('modal-recipes')">
                         <h3>🥞 Соленья и Рецепты</h3>
                         <p>Секретные домашние заготовки, хрустящие огурчики, пироги и кулинарная мудрость наших дам.</p>
                     </div>
@@ -466,12 +466,46 @@
     </div>
 
     <!-- Окно Службы Поддержки -->
-    <div class="modal-overlay" id="modal-support">
+     <div class="modal-overlay" id="modal-support">
         <div class="modal-window">
             <button class="modal-close" onclick="closeModal('modal-support')">&times;</button>
             <h2>Служба поддержки</h2>
             <p style="text-align: center; font-size: 1.1rem; color: #444;">По всем вопросам пишите председателю или звоните в правление! 🌾</p>
             <button class="btn-submit" style="width: 100%;" onclick="closeModal('modal-support')">Понятно</button>
+        </div>
+    </div>
+
+    <!-- ОКНО: Сельхозтехника -->
+    <div class="modal-overlay" id="modal-tech">
+        <div class="modal-window" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeModal('modal-tech')">&times;</button>
+            <h2>🚜 Сельхозтехника</h2>
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; text-align: left;">
+                <div style="background: #f1f8e9; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #2e7d32;">
+                    <strong>Михалыч:</strong> Куплю лемех на плуг ПЛН-3-35. Или обменяю на канистру солярки. Тел: 8-920-XXX-XX-XX.
+                </div>
+                <div style="background: #f1f8e9; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #2e7d32;">
+                    <strong>Степан:</strong> Перебираю пускачи на Т-40 и МТЗ. Работаю за совесть, инструмент свой. Пишите, кому подсобить.
+                </div>
+            </div>
+            <button class="btn-submit" style="width: 100%;" onclick="alert('Форма добавления временно в разработке')">Добавить объявление</button>
+        </div>
+    </div>
+
+    <!-- ОКНО: Соленья и Рецепты -->
+    <div class="modal-overlay" id="modal-recipes">
+        <div class="modal-window" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeModal('modal-recipes')">&times;</button>
+            <h2>🥞 Соленья и Рецепты</h2>
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; text-align: left;">
+                <div style="background: #fffde7; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #f57f17;">
+                    <strong>Тётя Маша:</strong> Девчата, раскрываю секрет хрустящих огурцов! На литровую банку кладите строго дубовый лист и две дольки чеснока, никакого уксуса, только хрен!
+                </div>
+                <div style="background: #fffde7; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #f57f17;">
+                    <strong>Наталья:</strong> Остались излишки кабачковой икры (урожай дурной уродился). Продам по 150р за баночку 0.5л. Забирать на Зелёной улице.
+                </div>
+            </div>
+            <button class="btn-submit" style="width: 100%;" onclick="alert('Форма добавления временно в разработке')">Поделиться рецептом</button>
         </div>
     </div>
 
