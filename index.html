@@ -514,15 +514,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Закрываем окно регистрации
             closeModal('modal-register');
+        // Меняем кнопки на приветствие и красивое зеленое уведомление
+if (authBlock) {
+authBlock.innerHTML = `
+<div style="text-align: center;">
+<div style="color: #2e7d32; font-weight: bold; font-size: 1rem; margin-bottom: 5px;">🌿 Успешная регистрация!</div>
+<span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${name}! 🏡</span>
+</div>
+}
 
-            // Меняем кнопки на приветствие и красивое зеленое уведомление
-            if (authBlock) {
-                authBlock.innerHTML = `
-                    <div style="text-align: center;">
-                        <div style="color: #2e7d32; font-weight: bold; font-size: 1rem; margin-bottom: 5px;">🌿 Успешная регистрация!</div>
-                        <span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${name}! 🏡</span>
-                    </div>`;
-            }
+
         });
     }
 });
