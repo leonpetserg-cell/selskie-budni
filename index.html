@@ -577,13 +577,30 @@
         </div>
     </div>
 
+    <!-- ОКНО: Администрация сайта -->
+    <div class="modal-overlay" id="modal-admin">
+        <div class="modal-window" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeModal('modal-admin')">&times;</button>
+            <h2>📋 Администрация сайта</h2>
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; text-align: left;">
+                <div style="background: #fff3e0; padding: 12px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid #ff9800;">
+                    <strong>Наказ председателя правления:</strong> <br>
+                    Уважаемые односельчане! В связи с участившимися набегами колорадского жука и дурным урожаем кабачков, объявляю всеобщую мобилизацию на грядки! 
+                    <br><br>
+                    Также напоминаю: ремонт срубов и конопатку бань проводить строго в трезвом виде (слышишь, Михалыч?). Порядок на земле — порядок в головах!
+                </div>
+            </div>
+            <button class="btn-submit" style="width: 100%; background: #ff9800;" onclick="closeModal('modal-admin')">Слушаюсь!</button>
+        </div>
+    </div>
+
     <!-- Подвал сайта -->
     <footer style="background: #222; color: #fff; padding: 20px; text-align: center; margin-top: 40px; border-radius: 8px 8px 0 0;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
             <div style="font-size: 0.9rem; color: #aaa;">&copy; 2026 Сельские Будни. Все права защищены. Порядок на земле — порядок в головах!</div>
             <div class="footer-buttons">
                 <button class="btn-footer" onclick="openModal('modal-support')">Служба поддержки</button>
-                <button class="btn-footer" onclick="openModal('modal-support')">Администрация сайта</button>
+                <button class="btn-footer" onclick="openModal('modal-admin')">Администрация сайта</button>
             </div>
         </div>
     </footer>
@@ -606,8 +623,4 @@
         }
     </script>
 </body>
-</html>
-    
-    
-            </body>
 </html>
