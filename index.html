@@ -407,14 +407,14 @@
                 <!-- КОЛОНКА 3 -->
                 <div class="column">
                     <div class="column-title">🌱 Земля и Сердца</div>
-                    <div class="blog-box" onclick="clickBlock('Сад и Урожай')">
-                        <h3>🍏 Сад и Урожай</h3>
+                    <div class="blog-box" onclick="openModal('modal-garden')">
+                        <h3>🥕 Сад и Урожай</h3>
                         <p>Бой с вредителями, выбор правильного сорта картофеля и секреты огромных, аккуратных грядок.</p>
                     </div>
-                    <div class="blog-box bg-love" onclick="clickBlock('Знакомства на селе')">
+                    <div class="blog-box bg-love" onclick="openModal('modal-love')">
                         <h3>❤️ Знакомства на селе</h3>
-                        <p>Поиск себе пары среди соседей и соседских полей. С уважением к традициям и под строгим контролем.</p>
-                        <button class="btn-sm" onclick="event.stopPropagation(); alert('Форма подачи анкеты');">Подать анкету</button>
+                        <p>Поиск своей пары среди соседей и соседних сел. С уважением к традициям и под строгим контролем.</p>
+                        <button class="btn-sm" onclick="event.stopPropagation(); openModal('modal-love')">Подать анкету</button>
                     </div>
                 </div>
             </div>
