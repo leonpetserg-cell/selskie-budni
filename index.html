@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сельские будни — Главный Портал</title>
+    <title>Сельские будни - Главный Портал</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,10 +13,11 @@
             color: #333;
         }
 
-        /* ТВОЯ НОВАЯ РАБОЧАЯ ССЫЛКА НА КАРТИНКУ С ЦЕРКОВЬЮ И РЕЧКОЙ */
+
+             /* ТВОЯ НОВАЯ РАБОЧАЯ ССЫЛКА НА КАРТИНКУ С ЦЕРКОВЬЮ И РЕЧКОЙ */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
-                        url('https://papik.pro/izobr/uploads/posts/2023-03/1679636028_papik-pro-p-krasivie-peizazhi-rusi-41.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                        url('https://papik.pro/izobr/uploads/posts/2023-03/1679636028_papik-pro-p-krasivie-peizazhi-rusi-41.jpg');
             background-size: cover;
             background-position: center 35%;
             color: white;
@@ -37,10 +38,8 @@
         header p {
             margin: 0;
             font-style: italic;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
             animation: goldenGlow 3s infinite alternate;
         }
 
@@ -52,7 +51,7 @@
         .auth-block {
             position: absolute;
             top: 20px;
-            left: 25px;
+            left: 20px;
         }
 
         .btn-auth {
@@ -64,15 +63,15 @@
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s;
-            margin-right: 5px;
+            margin-right: 8px;
             font-weight: bold;
         }
 
         .btn-auth:hover {
             background: #fbc02d;
             color: #2e7d32;
-        }
-
+        }        
+     
         /* ОПРЯТНЫЙ ВИДЖЕТ ПОГОДЫ НА ВСЕ РЕГИОНЫ */
         .weather-widget {
             position: absolute;
@@ -226,7 +225,7 @@
             .auth-block, .weather-widget { position: static; margin: 10px auto; text-align: center; width: fit-content; }
         }
            /* ======================================================== */
-        /* СТИЛИ ДЛЯ МОДАЛЬНЫХ ОКАН ВХОДА И РЕГИСТРАЦИИ (ДОРАБОТКА) */
+         /* СТИЛИ ДЛЯ МОДАЛЬНЫХ ОКАН ВХОДА И РЕГИСТРАЦИИ (ДОРАБОТКА) */
         /* ======================================================== */
         .modal-overlay {
             position: fixed;
@@ -332,19 +331,31 @@
             background: #fbc02d;
             color: #2e7d32;
         }
-	 </style>
-	</head>
-	<body>
 
+        /* КРАСИВЫЙ СЕЛЕКТОР ПОГОДЫ */
+        .weather-select {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 1px solid #fbc02d;
+            padding: 5px;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .weather-select option {
+            background: #1b1e1b;
+            color: white;
+        }
+     </style>
+    </head>
+    <body>
 
     <header>
         <div class="auth-block">
-                    <button class="btn-auth" onclick="document.getElementById('modal-login').classList.add('active')">Вход</button>
-        	<button class="btn-auth" onclick="document.getElementById('modal-register').classList.add('active')">Регистрация</button>
-
-
-        
-
+            <button class="btn-auth" onclick="document.getElementById('modal-login').classList.add('active')">Вход</button>
+            <button class="btn-auth" onclick="document.getElementById('modal-register').classList.add('active')">Регистрация</button>
         </div>
 
         <h1>Сельские будни</h1>
@@ -409,125 +420,132 @@
             </div>
 
         </div>
-    </div>    <!-- ======================================================== -->
-    <!--     HTML-РАЗМЕТКА ДЛЯ ОКАН ВХОДА И РЕГИСТРАЦИИ           -->
+    </div>
+   <!--     HTML-РАЗМЕТКА ДЛЯ ОКАН ВХОДА И РЕГИСТРАЦИИ           -->
     <!-- ======================================================== -->
     <!-- Окно Входа -->
-    
-<div class="modal-overlay" id="modal-login">
-    <div class="modal-window">
-        <button class="modal-close" onclick="document.getElementById('modal-login').classList.remove('active')">&times;</button>
-
-        <h2>Вход на портал</h2>
-        <form class="modal-form" id="login-form">
-            <div>
-                <label>Электронная почта или Логин:</label>
-                <input type="text" placeholder="Введите логин..." required>
-            </div>
-            <div>
-                <label>Пароль:</label>
-                <input type="password" placeholder="Введите пароль..." required>
-            </div>
-            <button type="submit" class="btn-submit">Войти</button>
-        </form>
+    <div class="modal-overlay" id="modal-login">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-login')">&times;</button>
+            <h2>Вход на портал</h2>
+            <form class="modal-form" id="login-form">
+                <div>
+                    <label>Электронная почта или Логин:</label>
+                    <input type="text" placeholder="Введите логин..." required>
+                </div>
+                <div>
+                    <label>Пароль:</label>
+                    <input type="password" placeholder="Введите пароль..." required>
+                </div>
+                <button type="submit" class="btn-submit">Войти</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<!-- Окно Регистрации -->
-<div class="modal-overlay" id="modal-register">
-    <div class="modal-window">
-        <button class="modal-close" onclick="document.getElementById('modal-register').classList.remove('active')">&times;</button>
-
-        <h2>Регистрация</h2>
-        <form class="modal-form" id="register-form">
-            <div>
-                <label>Ваше имя:</label>
-                <input type="text" placeholder="Иван Иванович..." required>
-            </div>
-            <div>
-                <label>Электронная почта:</label>
-                <input type="email" placeholder="example@mail.ru" required>
-            </div>
-            <div>
-                <label>Придумайте пароль:</label>
-                <input type="password" placeholder="Минимум 6 символов..." required>
-            </div>
-            <button type="submit" class="btn-submit">Создать аккаунт</button>
-        </form>
+    <!-- Окно Регистрации -->
+    <div class="modal-overlay" id="modal-register">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-register')">&times;</button>
+            <h2>Регистрация</h2>
+            <form class="modal-form" id="register-form">
+                <div>
+                    <label>Ваше имя:</label>
+                    <input type="text" placeholder="Иван Иванович..." required>
+                </div>
+                <div>
+                    <label>Электронная почта:</label>
+                    <input type="email" placeholder="example@mail.ru" required>
+                </div>
+                <div>
+                    <label>Придумайте пароль:</label>
+                    <input type="password" placeholder="Минимум 6 символов..." required>
+                </div>
+                <button type="submit" class="btn-submit">Создать аккаунт</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<footer>
-<div class="footer-buttons">
-    <button class="btn-footer" onclick="openModal('modal-support')">Служба поддержки</button>
-    <button class="btn-footer" onclick="openModal('modal-register')">Администрация сайта</button>
-</div>
-</footer>
+    <!-- Окно Службы Поддержки -->
+    <div class="modal-overlay" id="modal-support">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-support')">&times;</button>
+            <h2>Служба поддержки</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #444;">По всем вопросам пишите председателю или звоните в правление! 🌾</p>
+            <button class="btn-submit" style="width: 100%;" onclick="closeModal('modal-support')">Понятно</button>
+        </div>
+    </div>
 
+    <footer>
+        <div class="footer-buttons">
+            <button class="btn-footer" onclick="openModal('modal-support')">Служба поддержки</button>
+            <button class="btn-footer" onclick="openModal('modal-register')">Администрация сайта</button>
+        </div>
+    </footer>
 
-
-<script>
-// Функция для открытия окна
-function openModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'flex';
-    }
-}
-// Функция для закрытия окна
-function closeModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Закрытие окна при клике на темный фон вокруг него
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal-overlay')) {
-        event.target.style.display = 'none';
-    }
-}
-
-// === НАШ ПРОВЕРЕННЫЙ КОД ДЛЯ РЕГИСТРАЦИИ ОТ ИВАНЫЧА ===
-document.addEventListener("DOMContentLoaded", function() {
-    const registerForm = document.getElementById("register-form");
-    const authBlock = document.querySelector('.auth-block');
-
-    // Проверяем, заходил ли кто сосед раньше
-    const savedUser = localStorage.getItem("currentUser");
-    if (savedUser && authBlock) {
-        authBlock.innerHTML = `<span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${savedUser}! 🏡</span>`;
+    <script>
+    // Универсальная функция для открытия окон
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('active');
+        }
     }
 
-    if (registerForm) {
-        registerForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const inputs = registerForm.querySelectorAll("input");
-            const name = inputs[0].value.trim();
-            const email = inputs[1].value.trim();
-            const pass = inputs[2].value.trim();
-
-            // Записываем данные в память браузера
-            localStorage.setItem("user_" + email, JSON.stringify({name: name, pass: pass}));
-            localStorage.setItem("currentUser", name);
-
-            // Закрываем окно регистрации
-            closeModal('modal-register');
-        // Меняем кнопки на приветствие и красивое зеленое уведомление
-if (authBlock) {
-authBlock.innerHTML = `
-<div style="text-align: center;">
-<div style="color: #2e7d32; font-weight: bold; font-size: 1rem; margin-bottom: 5px;">🌿 Успешная регистрация!</div>
-<span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${name}! 🏡</span>
-</div>
-}
-
-
-        });
+    // Универсальная функция для закрытия окон
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('active');
+        }
     }
-});
-</script>
 
+    // Закрытие окна при клике на темный фон вокруг него
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal-overlay')) {
+            event.target.classList.remove('active');
+        }
+    }
 
+    // === НАШ ПРОВЕРЕННЫЙ КОД ДЛЯ РЕГИСТРАЦИИ ОТ ИВАНЫЧА ===
+    document.addEventListener("DOMContentLoaded", function() {
+        const registerForm = document.getElementById("register-form");
+        const authBlock = document.querySelector('.auth-block');
 
+        // Проверяем, заходил ли кто из соседей раньше
+        const savedUser = localStorage.getItem("currentUser");
+        if (savedUser && authBlock) {
+            authBlock.innerHTML = `<span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${savedUser}! 🏡</span>`;
+        }
+
+        if (registerForm) {
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const inputs = registerForm.querySelectorAll("input");
+                
+                // Вот тут теперь жестко привязано по номерам полей:
+                const name = inputs[0].value.trim();
+                const email = inputs[1].value.trim();
+                const pass = inputs[2].value.trim();
+
+                // Записываем данные в память браузера
+                localStorage.setItem("user_" + email, JSON.stringify({name: name, pass: pass}));
+                localStorage.setItem("currentUser", name);
+
+                // Закрываем окно регистрации
+                closeModal('modal-register');
+
+                // Меняем кнопки на приветствие и красивое зеленое уведомление
+                if (authBlock) {
+                    authBlock.innerHTML = `
+                        <div style="text-align: center;">
+                            <div style="color: #2e7d32; font-weight: bold; font-size: 1rem; margin-bottom: 5px;">🌿 Успешная регистрация!</div>
+                            <span style="color: #fbc02d; font-weight: bold; font-size: 1.1rem; line-height: 35px;">Привет, ${name}! 🏡</span>
+                        </div>
+                    `;
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>
