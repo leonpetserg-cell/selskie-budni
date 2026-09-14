@@ -362,15 +362,9 @@
         <p>Жизнь, порядок и вечный диалог о грядках. Добро пожаловать!</p>
         
         <!-- ПОГОДА ДЛЯ ВСЕХ РЕГИОНОВ РФ -->
-        <div class="weather-widget">
-            <span class="temp" id="region-temp">⛅ +14°C</span>
-            <select class="weather-select" onchange="const t=document.getElementById('region-temp'); if(this.value==='bryansk')t.innerHTML='⛅ +14°C'; else if(this.value==='moscow')t.innerHTML='☀️ +16°C'; else if(this.value==='piter')t.innerHTML='🌧️ +11°C'; else if(this.value==='kuban')t.innerHTML='☀️ +23°C'; else t.innerHTML='⛅ +15°C';">
-                <option value="bryansk" selected>Брянская обл.</option>
-                <option value="moscow">Московская обл.</option>
-                <option value="piter">Ленинградская обл.</option>
-                <option value="kuban">Краснодарский край</option>
-                <option value="all">Другие регионы РФ</option>
-            </select>
+        <div class="weather-widget" style="background: #fff9c4; padding: 6px 12px; border-radius: 20px; border: 1px solid #fbc02d; font-weight: bold; color: #f57f17; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <span>☀️ +22°C</span>
+            <small style="color: #555; font-weight: normal;">Брянская обл. (Завтра ясно!)</small>
         </div>
     </header>
 
